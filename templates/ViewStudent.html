@@ -1,0 +1,18 @@
+{% extends 'resUsable/navBar.html' %}
+
+{% block title %}
+View Student
+{% endblock %}
+
+
+{% block container %}
+<div class="row">
+{% for item in list %}
+<div class="col-xs-3 col-md-3 my-3">
+    <img src="static/StudentImages/{{item}}" width="150"><br>
+    {{item}}
+</div>
+
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'resUsable/navBar.html' %}
+
+{% block title %}
+Add new Student
+{% endblock %}
+
+
+{% block container %}
+<style>
+    .main{
+       margin-top:50px;
+           }
+</style>
+<div class="main">
+<div class="container col-md-2">
+    <h3>
+        Add new Student
+    </h3>
+    <form name="form1" action="newStudent.html" method="post" enctype="multipart/form-data">
+        <table class="table">
+            <tr>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                            <input name="name" type="text" placeholder="Name" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                            <input name="usn" type="text" placeholder="USN" required>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                            <input name="file" type="file" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <h3 class="text-center">{{msg}}</h3>
+</div>
+</div>
+{% endblock %}

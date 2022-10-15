@@ -1,0 +1,41 @@
+{% extends 'resUsable/navBar.html' %}
+
+{% block title %}
+
+Home Page
+
+{% endblock %}
+
+{% block container %}
+
+<script>
+    if({{flag}}=='1'){
+    alert("{{msg}}");
+    }
+    console.log("hii")
+</script>
+
+<div class="container col-md-3 my-5">
+    <table class="table table-striped table-bordered">
+        <h2 class="text-center text-white"> Students List</h2>
+
+        {% for k,v  in list | dictsort -%}
+        <tr>
+            <td class="text-white">
+                {{k}}
+            </td>
+            <td class="text-white">
+                {{v}}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+<div class="container col-md-3 my-5">
+
+</div>
+
+
+{% endblock %}

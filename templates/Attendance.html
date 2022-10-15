@@ -1,0 +1,106 @@
+{% extends 'resUsable/navBar.html' %}
+
+{% block title %}
+Attendance
+{% endblock %}
+
+
+{% block container %}
+<style>
+
+
+.parent {
+width:100vw;
+height:90%;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.div1 {
+        margin-left:50px;
+        grid-area: 1 / 1 / 2 / 2;
+        }
+.div2 {
+        padding:50px;
+        grid-area: 1 / 2 / 4 / 4;
+        }
+.div3 { margin-left:50px;
+        grid-area: 2 / 1 / 3 / 2;
+        }
+.div4 {
+        grid-area: 3 / 1 / 4 / 2;
+        margin-left:50px;
+        }
+.div5 { grid-area: 2 / 1 / 4 / 2; }
+
+.div1,div2,div3,div4{
+ padding:20px;
+}
+
+</style>
+<script src="static/jQuery.js"></script>
+<script>
+
+</script>
+
+
+<div class="parent">
+<div class="div1">
+    <h3 >
+        Take Attedance
+    </h3>
+    <form name="form1" action="Attendance.html" method="post" enctype="multipart/form-data">
+        <table class="table ">
+            <tr>
+                <td>
+                            <input name="file" id="image" type="file" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="submit" value="Submit" class="btn btn-primary text-center">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+<!--    diplay image-->
+<div class="div2">
+      <img src={{url_for('static',filename=image)}} style='height: 100%; width: 100%; object-fit: contain'  />
+</div>
+
+<!--    attendance kist-->
+<div class="div3">
+    <table class="table table-striped table-bordered">
+        {% if flag==1 %}
+        <h2 class="text-center"> Attendance List</h2>
+        {% for k,v  in sName | dictsort -%}
+        <tr>
+            <td>
+                {{ loop.index }}
+            </td>
+            <td>
+                {{k}}
+            </td>
+            <td>
+                {{v}}
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</div>
+<!--    total counts-->
+<div class="div4">
+        <h5 class="text-center">{{msg1}}</h5>
+        <h5 class="text-center">{{msg2}}</h5>
+</div>
+
+</div>
+
+{% endblock %}
