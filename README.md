@@ -24,3 +24,5 @@ Procedure
 3. Build model
 4. Take attendance 
 
+Username: admin 
+Password:1234
